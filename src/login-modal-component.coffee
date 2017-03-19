@@ -84,7 +84,7 @@ module.exports =
       rejected: false
       active: false
       failed: ""
-      disabled: true
+
   methods:
     setActiveLabel: (input,label) ->
       return unless input and label
@@ -117,6 +117,7 @@ module.exports =
         clearTimeout(timeout)
         @state.active = false
         @state.disabled = false
+        @pw = ""
       success = (result) =>
         cleanup()
         @cb?(result)
@@ -125,10 +126,9 @@ module.exports =
         @reject = null
         @cb = null
         @modal.hide()
-        @pw = ""
+        
       failed = =>
         cleanup()
-        @pw = ""
         @pwInput.focus()
         @state.failed = @text.error
       cb = (result) ->
@@ -149,6 +149,7 @@ module.exports =
       document.body.appendChild(@)
       @modal.show()
       @nameInput.focus()
+      @onActivePW()
       if @Promise
         return new @Promise (resolve, reject) =>
           @resolve = resolve
@@ -163,3 +164,5 @@ module.exports =
         @reject?()
         @reject = null
         @resolve = null
+        @state.active = false
+        @state.failed = ""

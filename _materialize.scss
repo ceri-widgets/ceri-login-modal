@@ -1,6 +1,9 @@
-ceri-modal .error-msg {
+ceri-modal.materialize.login-modal {
+  max-width: 500px;
+  & .error-msg {
   color:  $input-error-color;
-}
-ceri-modal input+label {
-  pointer-events: none;
+  }
+  & input+label {
+    pointer-events: none;
+  }
 }

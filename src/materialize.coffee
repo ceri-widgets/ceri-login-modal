@@ -5,7 +5,7 @@ module.exports =
       pw: "ma-vpn_key"
     activeLabel: "active"
   initClass:
-    modal: "materialize"
+    modal: "materialize login-modal"
     content: "modal-content"
     header: "center-align"
     nameContainer: "input-field col s12"
@@ -15,7 +15,7 @@ module.exports =
     btnContainer: "col s6 m4 push-s3 push-m4 center-align"
     btn: "btn"
     spinner: "col s1 push-s3 push-m4"
-    errorMsg: "error-msg col s12 m4  push-m4 "
+    errorMsg: "error-msg col s12 m3 push-m4 center-align"
   connectedCallback: ->
     if @_isFirstConnect
       fn = template 1, """
