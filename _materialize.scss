@@ -1,0 +1,6 @@
+ceri-modal .error-msg {
+  color:  $input-error-color;
+}
+ceri-modal input+label {
+  pointer-events: none;
+}
