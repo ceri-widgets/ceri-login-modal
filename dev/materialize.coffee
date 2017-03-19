@@ -22,3 +22,4 @@ module.exports = createView
     describe "login-modal", ->
       after ->
         el.remove()
+      it "should work", ->
