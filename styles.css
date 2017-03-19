@@ -2558,10 +2558,11 @@ ceri-modal.materialize {
     border-radius: 0;
     will-change: bottom, opacity; }
 
-ceri-modal .error-msg {
-  color: #F44336; }
-
-ceri-modal input + label {
-  pointer-events: none; }
+ceri-modal.materialize.login-modal {
+  max-width: 500px; }
+  ceri-modal.materialize.login-modal .error-msg {
+    color: #F44336; }
+  ceri-modal.materialize.login-modal input + label {
+    pointer-events: none; }
 
 /*# sourceMappingURL=styles.css.map*/
