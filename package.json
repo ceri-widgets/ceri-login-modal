@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "ceri": "^1.0.3",
-    "ceri-icon": "^0.0.1",
-    "ceri-modal": "^0.0.1"
+    "ceri-icon": "^0.0.3",
+    "ceri-modal": "^0.0.3"
   },
   "devDependencies": {
     "ceri-materialize": "^1.0.0",
