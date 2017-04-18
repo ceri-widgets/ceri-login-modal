@@ -21,7 +21,7 @@
     "node": "*"
   },
   "dependencies": {
-    "ceri": "^1.0.3",
+    "ceri": "^1.0.14",
     "ceri-icon": "^0.0.3",
     "ceri-modal": "^0.0.3"
   },

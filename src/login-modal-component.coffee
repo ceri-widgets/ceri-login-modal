@@ -147,9 +147,10 @@ module.exports =
     open: (cb) ->
       @cb = cb
       document.body.appendChild(@)
-      @modal.show()
-      @nameInput.focus()
-      @onActivePW()
+      @$nextTick =>
+        @modal.show()
+        @nameInput.focus()
+        @onActivePW()
       if @Promise
         return new @Promise (resolve, reject) =>
           @resolve = resolve
@@ -166,3 +167,6 @@ module.exports =
         @resolve = null
         @state.active = false
         @state.failed = ""
+  connectedCallback: ->
+    if @_isFirstConnect
+      @Promise ?= Promise
