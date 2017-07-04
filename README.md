@@ -15,19 +15,22 @@ npm install --save-dev ceri-login-modal
 ```coffee
 LoginModal = require("ceri-login-modal")
 # load the theme (see below)
-loginModal = LoginModal(require("ceri-login-modal/materialize"))
+loginModal = LoginModal(
+  require("ceri-login-modal/materialize"), #theme
+  { # optional localization
+    header: "Login"
+    name: "Username"
+    pw: "Password"
+    button: "login"
+    error: "Login failed"
+    timeout: "Login failed"
+  }
+  )
 # setup your login validation
 loginModal.login = (name, pw, cb) ->
   # check login
   # call cb with the result/false for success/failed
-# You can modify the displayed text like this:
-loginModal.text = 
-  header: "Login"
-  name: "Username"
-  pw: "Password"
-  button: "login"
-  error: "Login failed"
-  timeout: "Login failed"
+
 loginModal.timeout = 2000 # change the timeout
 # To open
 loginModal.open((result) ->
