@@ -68,10 +68,11 @@ loginModal.open().then((result)->
 // make sure to import these:
 @import "~materialize-css/sass/components/buttons";
 @import "~materialize-css/sass/components/grid";
-@import "~materialize-css/sass/components/preloader";
 @import "~ceri-materialize/forms";
 @import "~materialize-css/sass/components/forms/input-fields";
 @import "~ceri-modal/materialize";
+@import "~ceri-progress/materialize";
+@import "~ceri-toaster/materialize";
 
 // and this additional requirement
 @import "~ceri-login-modal/materialize";

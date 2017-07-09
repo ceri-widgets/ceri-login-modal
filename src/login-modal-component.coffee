@@ -34,7 +34,6 @@ module.exports =
               #model=pw
               @keyup=loginEvent
               type="password"
-              @input=pwChanged
               @focus=onActivePW
               @blur=onActivePW
               />
@@ -47,17 +46,9 @@ module.exports =
               @click=loginEvent 
               #ref=btn 
               :text=text.button
-              :disabled=state.disabled
+              :disabled=disabled
               > 
             </button>
-            
-          </div>
-          <div #ref=spinner #if=state.active></div>
-          <div 
-            #if=state.failed
-            #ref=errorMsg 
-            :text=state.failed
-            >
           </div>
         </div>
       </div>
@@ -78,12 +69,7 @@ module.exports =
     pw: ""
     activeLabel: ""
     timeout: 2000
-    state:
-      valid: true
-      resolved: false
-      rejected: false
-      active: false
-      failed: ""
+    disabled: false
 
   methods:
     setActiveLabel: (input,label) ->
@@ -96,7 +82,7 @@ module.exports =
       @setActiveLabel @nameInput, @nameLabel
     onActivePW: ->
       @setActiveLabel @pwInput, @pwLabel
-      @state?.disabled = @pw == ""
+      @disabled = @pw == ""
     focusPW: (e) ->
       if e.keyCode == 13
         if @pw == ""
@@ -105,45 +91,38 @@ module.exports =
           @loginEvent(e)
     loginEvent: (e) ->
       return if e.type == "keyup" and e.keyCode != 13
-      @state.active = true
-      @state.disabled = true
-      timeout = setTimeout (=>
-        @state.active = false
-        @state.disabled = false
-        @state.failed = @text.timeout
-        return
-        ), @timeout
-      cleanup = =>
-        clearTimeout(timeout)
-        @state.active = false
-        @state.disabled = false
-        @pw = ""
+      close = @$progress
+        el: @modal
+        zIndex: 2000
+        timeout: @timeout
+        onTimeout: => 
+          @disabled = false
+          @$toast text: @text.error
+      @disabled = true
       success = (result) =>
-        cleanup()
+        close()
         @cb?(result)
         @resolve?(result)
         @resolve = null
         @reject = null
         @cb = null
+        @pw = ""
         @modal.hide()
         
       failed = =>
-        cleanup()
+        close()
+        @pw = ""
         @pwInput.focus()
-        @state.failed = @text.error
+        @$toast text: @text.error
       cb = (result) ->
         if result
           success(result)
         else
           failed()
       promise = @login? @name, @pw, cb
-      promise?.then(success).catch(failed)
-    nameChanged: ->
-      @pw = ""
-      @state.failed = false
-    pwChanged: ->
-      @state.failed = false
-      
+      promise?.then?(success).catch(failed)
+    nameChanged: -> @pw = ""
+
     open: (cb) ->
       @cb = cb
       document.body.appendChild(@)
@@ -165,8 +144,7 @@ module.exports =
         @reject?()
         @reject = null
         @resolve = null
-        @state.active = false
-        @state.failed = ""
+
   connectedCallback: ->
     if @_isFirstConnect
       @Promise ?= Promise

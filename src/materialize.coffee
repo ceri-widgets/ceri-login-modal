@@ -1,4 +1,8 @@
 module.exports =
+  mixins: [
+    require("ceri-progress/mixin")(require("ceri-progress/materialize"))
+    require("ceri-toaster/mixin")(require("ceri-toaster/materialize"))
+    ]
   data: ->
     icon:
       name: "ma-person"
@@ -14,23 +18,3 @@ module.exports =
     pwIcon: "prefix"
     btnContainer: "col s6 m4 push-s3 push-m4 center-align"
     btn: "btn"
-    spinner: "col s1 push-s3 push-m4"
-    errorMsg: "error-msg col s12 m3 push-m4 center-align"
-  connectedCallback: ->
-    if @_isFirstConnect
-      fn = template 1, """
-        <div class="preloader-wrapper small active">
-          <div class="spinner-layer">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"></div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-        </div>
-      """
-      @spinner.appendChild(fn.call(@)[0])

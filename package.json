@@ -21,13 +21,15 @@
     "node": "*"
   },
   "dependencies": {
-    "ceri": "^1.0.21",
+    "ceri": "^1.0.22",
     "ceri-icon": "^0.1.0",
-    "ceri-modal": "^0.1.0"
+    "ceri-modal": "^0.1.0",
+    "ceri-progress": "^0.0.1",
+    "ceri-toaster": "^0.1.0"
   },
   "devDependencies": {
     "ceri-compiler": "^1.1.1",
-    "ceri-dev-server": "^1.0.7",
+    "ceri-dev-server": "^1.0.8",
     "ceri-materialize": "^1.0.1",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.6",
