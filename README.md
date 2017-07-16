@@ -8,7 +8,7 @@ A simple, themed login-modal
 # Install
 
 ```sh
-npm install --save-dev ceri-login-modal
+npm install --save-dev ceri-login-modal ceri-toaster ceri-progress ceri-modal
 ```
 ## Usage
 
@@ -70,11 +70,11 @@ loginModal.open().then((result)->
 @import "~materialize-css/sass/components/grid";
 @import "~ceri-materialize/forms";
 @import "~materialize-css/sass/components/forms/input-fields";
+
+// and this additional requirement
 @import "~ceri-modal/materialize";
 @import "~ceri-progress/materialize";
 @import "~ceri-toaster/materialize";
-
-// and this additional requirement
 @import "~ceri-login-modal/materialize";
 ```
 - setup webpack for [ceri-icon](https://github.com/ceri-comps/ceri-icon). Include `ma-person` and `ma-vpn_key` icons.

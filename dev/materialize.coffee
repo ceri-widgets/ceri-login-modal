@@ -16,10 +16,6 @@ module.exports = createView
   methods:
     openLogin: ->
       login.open()
-  connectedCallback: ->
-    #login.open()
-  tests: (el) ->
-    describe "login-modal", ->
-      after ->
-        el.remove()
-      it "should work", ->
+  tests: loginModal: ->
+      it "should work", =>
+        should.exist @
