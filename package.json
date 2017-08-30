@@ -26,20 +26,20 @@
     "ceri-toaster": "^0.1.1"
   },
   "dependencies": {
-    "ceri": "^1.0.24",
-    "ceri-icon": "^0.1.1"
+    "ceri": "^1.0.25",
+    "ceri-icon": "^0.2.2"
   },
   "devDependencies": {
-    "ceri-compiler": "^1.1.2",
+    "ceri-compiler": "^1.1.3",
     "ceri-modal": "^0.1.0",
     "ceri-progress": "^0.1.0",
     "ceri-toaster": "^0.1.1",
-    "ceri-dev-server": "^1.0.9",
+    "ceri-dev-server": "^1.0.11",
     "ceri-materialize": "^1.0.1",
     "coffee-loader": "^0.7.3",
-    "coffee-script": "^1.12.6",
+    "coffee-script": "^1.12.7",
     "gh-pages": "^1.0.0",
-    "materialize-css": "^0.99.0",
+    "materialize-css": "^0.100.2",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "script-runner": "^0.1.7"
