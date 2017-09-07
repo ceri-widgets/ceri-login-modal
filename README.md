@@ -8,7 +8,7 @@ A simple, themed login-modal
 # Install
 
 ```sh
-npm install --save-dev ceri-login-modal ceri-toaster ceri-progress ceri-modal
+npm install --save-dev ceri-login-modal ceri-toaster ceri-progress ceri-modal ceri-icon
 ```
 ## Usage
 
@@ -63,20 +63,8 @@ loginModal.open().then((result)->
 
 ## Themes
 #### Materialize
-- setup [ceri-materialize](https://github.com/ceri-comps/ceri-materialize) and load the scss.
-```scss
-// make sure to import these:
-@import "~materialize-css/sass/components/buttons";
-@import "~materialize-css/sass/components/grid";
-@import "~ceri-materialize/forms";
-@import "~materialize-css/sass/components/forms/input-fields";
+- setup [ceri-materialize](https://github.com/ceri-comps/ceri-materialize)
 
-// and this additional requirement
-@import "~ceri-modal/materialize";
-@import "~ceri-progress/materialize";
-@import "~ceri-toaster/materialize";
-@import "~ceri-login-modal/materialize";
-```
 - setup webpack for [ceri-icon](https://github.com/ceri-comps/ceri-icon). Include `ma-person` and `ma-vpn_key` icons.
 
 - load theme file
@@ -93,7 +81,9 @@ npm install
 npm run dev
 ```
 Browse to `http://localhost:8080/`.
-
+## Notable changes
+#### 0.3.0
+- use ceri-materialize@2
 ## License
 Copyright (c) 2017 Paul Pflugradt
 Licensed under the MIT license.

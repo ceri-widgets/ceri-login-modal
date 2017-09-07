@@ -1,0 +1,13 @@
+@require "~ceri-materialize/2_variables"
+@require "~ceri-modal/materialize"
+@require "~ceri-progress/materialize"
+@require "~ceri-toaster/materialize"
+@require "~ceri-materialize/5_inputFields"
+@require "~ceri-materialize/6_buttons"
+
+ceri-modal.materialize.login-modal
+  max-width: 500px
+  & .error-msg
+    color: $input-error-color
+  & input + label
+    pointer-events: none

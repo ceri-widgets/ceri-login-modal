@@ -1,4 +1,4 @@
-require "./materialize.config.scss"
+require "./materialize.config.styl"
 login = require("../src/login-modal.coffee")(require("../src/materialize.coffee"))
 login.login = (name, pw, cb) ->
   setTimeout (->
@@ -6,7 +6,9 @@ login.login = (name, pw, cb) ->
     ), 1000
 createView = require "ceri-dev-server/lib/createView"
 module.exports = createView
-
+  mixins: [
+    require "ce/watch"
+  ]
   structure: template 1, """
     <button style=margin-top:20px class="btn" @click=openLogin>Open Login</button>
     <br/>
